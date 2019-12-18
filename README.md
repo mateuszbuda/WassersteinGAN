@@ -3,6 +3,16 @@ Wasserstein GAN
 
 Code accompanying the paper ["Wasserstein GAN"](https://arxiv.org/abs/1701.07875)
 
+### Docker
+
+```
+docker build -t gan -f Dockerfile.gpu .
+```
+
+```
+docker run --runtime=nvidia --shm-size 2G --rm -it -v `pwd`:/workspace -v /path/to/data:/data gan bash
+```
+
 ## A few notes
 
 - The first time running on the LSUN dataset it can take a long time (up to an hour) to create the dataloader. After the first run a small cache file will be created and the process should take a matter of seconds. The cache is a list of indices in the lmdb database (of LSUN)
